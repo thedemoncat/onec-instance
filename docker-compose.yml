@@ -1,0 +1,61 @@
+version: '3.3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+      args:
+        ONEC_USERNAME: ${ONEC_USERNAME}
+        ONEC_PASSWORD: ${ONEC_PASSWORD}
+        VERSION:  ${ONEC_VERSION}
+    depends_on:
+      - db
+    hostname: ${HOSTNAME}
+    ports:
+      - "1540-1541:1540-1541"
+      - "1560:1560"
+    volumes:
+      - server_data:/home/usr1cv8/.1cv8
+      - server_log:/var/log/1C
+    networks:
+      onec-net:
+        aliases:
+            - onec.local
+
+  db:
+    image: rsyuzyov/docker-postgresql-pro-1c
+    ports:
+      - "${PG_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql
+    networks:
+      onec-net:
+        aliases:
+          - postgresql.local
+
+  ras:
+    build:
+      context: .
+      dockerfile: onec-full/Dockerfile
+      args:
+        ONEC_USERNAME: ${ONEC_USERNAME}
+        ONEC_PASSWORD: ${ONEC_PASSWORD}
+        VERSION:  ${ONEC_VERSION}
+    entrypoint: /opt/1C/v8.3/x86_64/ras
+    command: "cluster server:1540"
+    ports:
+      - "${RAS_PORT}:1545"
+    networks:
+      onec-net:
+
+
+volumes:
+  server_data: {}
+  server_log: {}
+  db_data: {}
+  repo_data: {}
+  client_data: {}
+
+networks:
+    onec-net:
