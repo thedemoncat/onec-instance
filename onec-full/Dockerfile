@@ -14,7 +14,7 @@ RUN apk --no-cache add bash curl grep \
   && for file in *.tar.gz; do tar -zxf "$file"; done \
   && rm -rf *.tar.gz
 
-FROM registry.oskk.1solution.ru/docker-images/onec-base:latest as base
+FROM demoncat/onec-base:latest:latest as base
 LABEL maintainer="Ruslan Zhdanov <nl.ruslan@yandex.ru> (@TheDemonCat)"
 
 COPY --from=downloader /tmp/*.deb /tmp/
