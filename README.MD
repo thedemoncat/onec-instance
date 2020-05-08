@@ -47,7 +47,88 @@
 
 # Запуск на Winsows
 
-**TODO**
+1. Версия сборки windows должна быть свежее 1903, для установки wsl2. Инструкцию по установке 
+1. Устанавливаем свежую версию Docker с официального сайта. 
+2. Создать файл `.env` в корне проекта. В качестве примера использовать `.env.example`. В файле должны быть определены переменные:
+```
+    ONEC_USERNAME=<ПОЛЬЗОВАТЕЛЬ_USERS.1C.V8.RU>
+    ONEC_PASSWORD=<ПАРОЛЬ_ОТ_USERS.1C.V8.RU>
+    ONEC_VERSION=8.3.14.1993
+    ONEC_PG_VERSION=9.6-2-1C
+    PG_PORT=5432
+    CRS_PORT=1542
+    RAS_PORT=1545
+    HOSTNAME=onec_server
+```
+
+Используемая учетная запись должна иметь доступ к скачиванию платформы 1С:Предприятие
+
+3. Запускаем инстанс командой:
+
+```
+    docker-compose up -d
+```
+
+4. Проверим, что инстанс успешно стартовал 
+
+```
+    docker-compose ps
+```
+
+выглядить этио должно применно так:
+```
+    onec-instance_db_1       /sbin/entrypoint.sh              Exit 255   0.0.0.0:5432->5432/tcp
+
+    onec-instance_ras_1      /opt/1C/v8.3/x86_64/ras cl ...   Exit 255   0.0.0.0:1545->1545/tcp
+
+    onec-instance_server_1   /opt/1C/v8.3/x86_64/ragent ...   Exit 255   0.0.0.0:1540->1540/tcp, 0.0.0.0:1541->1541/tcp...
+```
+
+5. Пределяем, какой идентификатор сервиса у поднятого контейнера с сервером 1с
+```
+    docker-compose ps -q server
+```
+
+ответ должен быть такого вида:
+
+```
+    C:\repo\onec-instance>docker-compose ps -q server
+    ffd4abe46ea6a62d09c103238ba8abd0fff90205007a74965cdb88f7e93c3992
+```
+6. Определяем IP адрес запущенного контейнераЖ
+
+```
+    docker inspect ffd4abe46ea6a62d09c103238ba8abd0fff90205007a74965cdb88f7e93c3992 | grep "IPAddress"
+```
+
+***ffd4abe46ea6a62d09c103238ba8abd0fff90205007a74965cdb88f7e93c3992*** - Это идентификатор контейнера, полученный на предыдущем шаге
+
+результат выполнения команды должен быть примерно такой:
+
+```
+    "SecondaryIPAddresses": null,
+    "IPAddress": "",
+            "IPAddress": "172.18.0.4",
+```
+
+требуемый IP арес у нас "172.18.0.4"
+
+7. Открываем файл `C:\Windows\System32\drivers\etc\hosts` в блокноте, запущенном с правами администратора и добавляем в конце файла строчку:
+
+```
+172.18.0.4 onec_server
+```
+
+где, 
+
+172.18.0.4 - IP адрес контейнера
+onec_server - имя контенера, его определяли в переменной HOSTNAME на шаге 2 (в вайле `.env`)
+
+## Странные ошибки
+
+**ERROR: open \\.\pipe\docker_engine_linux: The system cannot find the file specified.**
+
+- Перезапустить docker
 
 
 # Благодарности
