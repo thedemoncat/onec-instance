@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e -x
+set -e
 # PATH TO YOUR HOSTS FILE
 ETC_HOSTS=/etc/hosts
 
@@ -85,13 +85,12 @@ elif [ "$1" == "restart" ]; then
 
 elif [ "$1" == "status" ]; then
     if running; then
-        echo "[$VIDEO_DEV] running"
+        echo "instance running"
         exit 0
     else
-        echo "[$VIDEO_DEV] stopped"
+        echo "instance stopped"
         exit 1
     fi
 else
     help
 fi
-
