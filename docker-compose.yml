@@ -3,8 +3,8 @@ version: '3.3'
 services:
   server:
     build:
-      context: .
-      dockerfile: server/Dockerfile
+      context: ./onec-server
+      dockerfile: Dockerfile
       args:
         ONEC_USERNAME: ${ONEC_USERNAME}
         ONEC_PASSWORD: ${ONEC_PASSWORD}
