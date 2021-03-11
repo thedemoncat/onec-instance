@@ -58,4 +58,3 @@ volumes:
 
 networks:
     onec-net:
-    
