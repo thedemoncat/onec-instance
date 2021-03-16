@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
   server:
+    image: ghcr.io/thedemoncat/onec-server:${ONEC_VERSION}
     build:
       context: ./onec-server
       dockerfile: Dockerfile
@@ -35,6 +36,7 @@ services:
           - postgresql.local
 
   ras:
+    image: ghcr.io/thedemoncat/onec-full:${ONEC_VERSION}
     build:
       context: .
       dockerfile: onec-full/Dockerfile
