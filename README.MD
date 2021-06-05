@@ -52,7 +52,7 @@
     - **Пароль пользователя баз данных оставляем пустым**
 
 
-# Запуск на Winsows
+# Запуск на Windows
 
 1. Версия сборки windows должна быть свежее 1903, для установки wsl2. Установку wsl2 необходимо производить по [этой](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10) инструкции
 
@@ -130,4 +130,4 @@ onec_server - имя контенера, его определяли в пере
 
 # Благодарности
 
- - ПОлезные идеи по созданию образов брались из [этого](https://github.com/firstBitSemenovskaya/onec-docker) репозитария 
+ - Полезные идеи по созданию образов брались из [этого](https://github.com/firstBitSemenovskaya/onec-docker) репозитария 
