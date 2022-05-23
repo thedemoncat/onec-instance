@@ -44,7 +44,7 @@ services:
         ONEC_USERNAME: ${ONEC_USERNAME}
         ONEC_PASSWORD: ${ONEC_PASSWORD}
         ONEC_VERSION:  ${ONEC_VERSION}
-    entrypoint: /opt/1C/v8.3/x86_64/ras
+    entrypoint: ras
     command: "cluster server:1540"
     ports:
       - "${RAS_PORT}:1545"
