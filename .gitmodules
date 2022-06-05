@@ -1,6 +1,0 @@
-[submodule "onec-full"]
-	path = onec-full
-	url = https://github.com/TheDemonCat/onec-full
-[submodule "onec-server"]
-	path = onec-server
-	url = https://github.com/TheDemonCat/onec-server.git

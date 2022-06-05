@@ -3,13 +3,6 @@ version: '3.3'
 services:
   server:
     image: ghcr.io/thedemoncat/onec-server:${ONEC_VERSION}
-    build:
-      context: ./onec-server
-      dockerfile: Dockerfile
-      args:
-        ONEC_USERNAME: ${ONEC_USERNAME}
-        ONEC_PASSWORD: ${ONEC_PASSWORD}
-        ONEC_VERSION:  ${ONEC_VERSION}
     depends_on:
       - db
     hostname: ${HOSTNAME}
@@ -37,13 +30,6 @@ services:
 
   ras:
     image: ghcr.io/thedemoncat/onec-full:${ONEC_VERSION}
-    build:
-      context: .
-      dockerfile: onec-full/Dockerfile
-      args:
-        ONEC_USERNAME: ${ONEC_USERNAME}
-        ONEC_PASSWORD: ${ONEC_PASSWORD}
-        ONEC_VERSION:  ${ONEC_VERSION}
     entrypoint: ras
     command: "cluster server:1540"
     ports:
