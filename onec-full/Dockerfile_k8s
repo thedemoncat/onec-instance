@@ -1,0 +1,15 @@
+
+ARG ONEC_VERSION
+ARG IMAGE_NAME=thedemoncat/onec/full
+FROM "$IMAGE_NAME":"$ONEC_VERSION"
+
+RUN set -xe \
+    && apt-get update \
+    && apt-get install -y \
+        jq \
+        curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY scripts/k8s-add-host-onec-server.sh /script/k8s-add-host-onec-server.sh
+
+RUN chmod +x /script/k8s-add-host-onec-server.sh
