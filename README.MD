@@ -16,7 +16,7 @@
 1. Копируем распакованный дистрибутив технологической платформы 1С:Предприятия (64-bit) для Linux в каталог distrib
 2. Создать файл `.env` в корне проекта. В качестве примера использовать `.env.example`. В файле должны быть определены переменные:
 ```
-    ONEC_VERSION=8.3.14.1993
+    ONEC_VERSION=8.3.21.1302
     ONEC_PG_VERSION=9.6-2-1C
     PG_PORT=5432
     CRS_PORT=1542
@@ -33,7 +33,7 @@
 ```
     ONEC_USERNAME=<ПОЛЬЗОВАТЕЛЬ_USERS.1C.V8.RU>
     ONEC_PASSWORD=<ПАРОЛЬ_ОТ_USERS.1C.V8.RU>
-    ONEC_VERSION=8.3.14.1993
+    ONEC_VERSION=8.3.21.1302
     ONEC_PG_VERSION=9.6-2-1C
     PG_PORT=5432
     CRS_PORT=1542
@@ -77,7 +77,7 @@
 ```
     ONEC_USERNAME=<ПОЛЬЗОВАТЕЛЬ_USERS.1C.V8.RU>
     ONEC_PASSWORD=<ПАРОЛЬ_ОТ_USERS.1C.V8.RU>
-    ONEC_VERSION=8.3.14.1993
+    ONEC_VERSION=8.3.21.1302
     ONEC_PG_VERSION=9.6-2-1C
     PG_PORT=5432
     CRS_PORT=1542
