@@ -2,16 +2,19 @@ version: '3.3'
 
 services:
   server:
-    image: ghcr.io/thedemoncat/onec-server:${ONEC_VERSION}
+    image: ghcr.io/thedemoncat/onec-server-ws:${ONEC_VERSION}
     depends_on:
       - db
     hostname: ${HOSTNAME}
     ports:
       - "1540-1541:1540-1541"
       - "1560:1560"
+      - "8081:80"
     volumes:
-      - server_data:/home/usr1cv8/.1cv8
-      - server_log:/var/log/1C
+      - server_data:/home/usr1cv8/srvinfo/
+      - server_log:/var/log/
+      - ./apache.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./default.vrd:/wwwroot/TestPub/default.vrd
     networks:
       onec-net:
         aliases:

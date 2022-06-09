@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConfigDumpInfo xmlns="http://v8.1c.ru/8.3/xcf/dumpinfo" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" format="Hierarchical" version="2.14">
+	<ConfigVersions>
+		<Metadata name="Configuration.Конфигурация" id="03ccb716-a4d1-49df-814c-79e19c69e9b6" configVersion="8f9f0396ff41ef478f5312c07c6ab6f300000000"/>
+		<Metadata name="HTTPService.PrettyAPI" id="74a9b638-2dad-4f61-851c-968d90d66300" configVersion="844ca15d27ccb748b9abb0c8fb144cb000000000">
+			<Metadata name="HTTPService.PrettyAPI.URLTemplate.ШаблонURL1.Method.GET" id="255b60cf-11e7-4094-a802-fbbd56fc1c3c"/>
+			<Metadata name="HTTPService.PrettyAPI.URLTemplate.ШаблонURL1" id="4f60172d-7c55-4b55-a4e6-b24af18f3667"/>
+		</Metadata>
+		<Metadata name="HTTPService.PrettyAPI.Module" id="74a9b638-2dad-4f61-851c-968d90d66300.0" configVersion="b50dd023a8fe444c867cf2307b9b6e7000000000"/>
+		<Metadata name="Language.Русский" id="8dc6e3df-feec-4bcc-a841-9b606a5ca654" configVersion="2ecfe908ad7190469aea6a668457874300000000"/>
+	</ConfigVersions>
+</ConfigDumpInfo>
